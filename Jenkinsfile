@@ -24,6 +24,9 @@ pipeline {
         stage('Deliver') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'
+            }
+            steps {
+                agent {docker}
                 sh 'run --name tomcat -d  -p 8080:8080 \
 -v /ice/docker/ProjetoJava/IRRFWeb/target/IRRFWeb-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/IRRFWeb-1.0-SNAPSHOT.war tomcat'
             }
