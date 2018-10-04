@@ -25,5 +25,5 @@ echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
 java -jar target/${NAME}-${VERSION}.jar
 
-docker run --name tomcat -d  -p 8080:8080 \
+run --name tomcat -d  -p 8080:8080 \
 -v /ice/docker/ProjetoJava/IRRFWeb/target/IRRFWeb-1.0-SNAPSHOT.war:/usr/local/tomcat/webapps/IRRFWeb-1.0-SNAPSHOT.war tomcat
